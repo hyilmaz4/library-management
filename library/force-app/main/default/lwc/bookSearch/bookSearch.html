@@ -1,0 +1,31 @@
+<!--
+  @description       : 
+  @author            : Hüseyin Yılmaz
+  @group             : 
+  @last modified on  : 08-19-2023
+  @last modified by  : Hüseyin Yılmaz
+-->
+<template>
+  <lightning-card title="Book Search">
+      <div class="slds-m-around_medium">
+          <lightning-input
+              label="Search Book"
+              onchange={handleSearch}
+              value={searchText}
+          ></lightning-input>
+      </div>
+      <div class="slds-m-around_medium">
+          <lightning-datatable
+              key-field="Id"
+              data={bookList}
+              columns={columns}
+              
+              hide-checkbox-column="true"
+              is-loading={isNoRecordFound}
+          ></lightning-datatable>
+          <template if:true={isNoRecordFound}>
+              <p>No records found.</p>
+          </template>
+      </div>
+  </lightning-card>
+</template>

@@ -1,0 +1,43 @@
+<apex:page standardController="Member__c" renderAs="pdf">
+
+<table style="font-family:sans-serif; padding-bottom:30px;">
+<tr>
+    <td><apex:image id="MemberLogo" value="{!$Resource.MemberLogo}" width="100" height="100"/></td>
+    <td style="font:24pt; padding-left:10px; padding-right:400px;"></td>
+    <td style="font:24pt;">LIBRARY CARD</td>
+</tr>
+</table>
+<table style="border:0.5px solid #fff; font-family:sans-serif;">
+<tr>
+    <td style="padding-left:5px;"><apex:outputField value="{!Member__c.Name__c}"/> <span><apex:outputField value="{!Member__c.Surname__c}"/></span></td>
+    <td style="test-align:right; padding-right:20px;">Date</td> 
+    <td style="text-align:right;"><apex:outputText value="{!DAY(TODAY())}-{!MONTH(TODAY())}-{!YEAR(TODAY())}"/></td> 
+</tr>
+<tr>
+    <td style="padding-right:450px;"><apex:outputField value="{!Member__c.Address__c}"/>  </td>
+
+</tr>
+
+<tr>
+    <td><apex:outputField value="{!Member__c.Email__c}"/></td>
+</tr>
+<tr>
+    <td><apex:outputField value="{!Member__c.Phone__c}"/></td>
+</tr>    
+</table>
+<br></br>
+
+<table style="font-family:sans-serif;">
+<tr style="color:#fff; background-color:#ff4500;">
+    <th style="padding-left:5px; padding-right:80px;">Last Read Book</th>
+    <th style="text-align:center; padding-left:50px; padding-right:50px;">Last Book Read Date</th>
+    <th style="text-align:right; padding-left:50px; padding-right:5px;">Borrowed Book Total</th>
+</tr>
+<tr>
+    <td style="padding-left:5px;"><apex:outputField value="{!Member__c.Last_read_book__c}"/></td>
+    <td style="text-align:center;"><apex:outputField value="{!Member__c.Last_Book_Read_Date__c}"/></td>
+    <td style="text-align:right; padding-right:5px;"><apex:outputField value="{!Member__c.Borrowed_Book_Total__c}"/></td>
+</tr>
+</table>
+
+</apex:page>
